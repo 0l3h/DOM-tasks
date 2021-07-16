@@ -19,12 +19,12 @@ firstInput.oninput = e => {
 
 buttonCalculate.onclick = e => {
     const {value} = firstInput;
-    secondInput.setAttribute('value', calculateVolume(value));      
+    secondInput.setAttribute('value', calculateVolume(value));
 };
 
 /**
  * @param {Number} radius Радиус шара. 
- * @returns               Объем шара.
+ * @returns               Объем шара.   
  */
 function calculateVolume(radius) {    
     return 4/3 * Math.PI * Math.pow(radius, 3);

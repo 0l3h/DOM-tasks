@@ -29,7 +29,7 @@ const profilePictures = [
 createListElements();
 
 /**
-* Метод создает карточку с информациией о пользователе.
+* Метод создает карточки с информацией о пользователях.
 */
 function createListElements() {
     const ulElement = document.querySelector('ul');
@@ -42,6 +42,7 @@ function createListElements() {
         const imgElement = document.createElement('img');
         const buttonElement = document.createElement('button');
 
+        // Генерация структуры карточки
         ulElement.append(liElement);
             liElement.append(imgElement);
                 imgElement.setAttribute('src', profilePictures[i]);
@@ -55,15 +56,21 @@ function createListElements() {
             liElement.append(pElement);
                 pElement.append(users[i].description);
 
+        // Появление кнопки удаления карточки, подсвечивание карточки при нажатии на неё
         liElement.onclick = e => {
             const buttonImage = document.createElement('img');
 
             liElement.style.boxShadow = '0px 0px 5px 1px rgb(0, 162, 255)';
             liElement.append(buttonElement);
+            
+            if (!buttonElement.firstElementChild) {
                 buttonElement.append(buttonImage);
                 buttonImage.setAttribute('src', 'https://image.flaticon.com/icons/png/512/60/60994.png');
+                console.log('sdasd');
+            } 
         }
 
+        // Удаление карточки
         buttonElement.onclick = e => {
             buttonElement.parentElement.remove();
         }
